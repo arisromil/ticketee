@@ -38,6 +38,7 @@ group :test do
 end
 
 gem 'devise', '~> 1.4.3'
+gem 'tlsmail'
 
 
 # Use unicorn as the web server
