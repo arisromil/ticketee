@@ -4,12 +4,17 @@ Feature: Creating projects
   I want to create them easily
 
 Background:
+  Given there are the following users:
+  | email               | password |
+  | arisromil@gmail.com | password |
+  And I am signed in as them
   Given I am on the homepage
   When I follow "New Project"
 
+
 Scenario: Creating a project
   And I fill in "Name" with "TextMate 2"
-  And I press "Create Project"
+  And I press ""
   Then I should see ""
   And I should be on the project page for "TextMate 2"
   And I should see "TextMate 2 - Projects - Ticketee"
