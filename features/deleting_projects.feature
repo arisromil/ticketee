@@ -15,5 +15,5 @@ Feature: Deleting projects
     When I follow "TextMate 2"
     And I follow "Delete Project"
     Then I should see ""
-    Then I should not see "TextMate 12"
+    Then I should not see "TextMate 2"
 
