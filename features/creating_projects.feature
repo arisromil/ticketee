@@ -5,8 +5,8 @@ Feature: Creating projects
 
 Background:
   Given there are the following users:
-  | email               | password |
-  | arisromil@gmail.com | password |
+  | email               | password  |
+  | arisromil@gmail.com | thanksgod |
   And I am signed in as them
   Given I am on the homepage
   When I follow "New Project"
