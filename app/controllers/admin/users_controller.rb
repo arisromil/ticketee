@@ -44,6 +44,17 @@ else
 end
 end
 
+def destroy
+if @user == current_user
+flash[:notice] = "You cannot delete yourself!"
+else
+@user.destroy
+flash[:notice] = "User has been deleted."
+end
+redirect_to admin_users_path
+end
+
+
 
 
   private
