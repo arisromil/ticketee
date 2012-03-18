@@ -5,8 +5,8 @@ I want to be able to add them through the backend
 
 Background:
  Given there are the following users:
-   | email               | password  | admin |
-   | arisromil@gmail.com | thanksgod | true |
+   | email              | password | admin |
+   | admin@ticketee.com | password | true  |
   And I am signed in as them
   Given I am on the homepage
   When I follow "Admin"
@@ -32,4 +32,4 @@ Scenario: Creating an admin user
  And I check "Is an admin?"
  And I press "Create User"
  Then I should see "User has been created"
- And I should see "newadmin@ticketee.com (Admin)"
+ 

@@ -2,7 +2,7 @@
 <%= admins_only do %>
 <%= link_to "New Project", new_project_path %>
 <% end %>
-
+<%= notice %>
 <h2>Projects</h2>
 <ul>
 <% @projects.each do |project| %>
