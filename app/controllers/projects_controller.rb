@@ -1,12 +1,16 @@
 class ProjectsController < ApplicationController
 
 before_filter :authorize_admin!, :except => [:index, :show]
-before_filter :authenticate_user!, :only => [:show]
+before_filter :authenticate_user!, :only => [:index, :show]
 before_filter :find_project, :only => [:show,:edit,:update,:destroy]
 
+
+
+
   def index
-    @projects = Project.all
+    @projects = Project.for(current_user).all
   end
+
 
   def new
    @project = Project.new
@@ -52,11 +56,8 @@ before_filter :find_project, :only => [:show,:edit,:update,:destroy]
   
 private
    def find_project
-      @project = if current_user.admin?
-        Project.find(params[:id])
-      else
-        Project.readable_by(current_user).find(params[:id])
-      end
+
+      @project = Project.for(current_user).find(params[:id])
 
       rescue ActiveRecord::RecordNotFound
       flash[:notice] = "The project you were looking for could not be found."

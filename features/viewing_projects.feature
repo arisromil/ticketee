@@ -15,6 +15,6 @@ Feature: Viewing projects
 
   Scenario: Listing all projects
     And I am on the homepage
-
+    Then I should not see "Internet Explorer"
     When I follow "TextMate 2"
     Then I should be on the project page for "TextMate 2"
