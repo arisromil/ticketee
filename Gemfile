@@ -39,6 +39,8 @@ end
 
 gem 'devise', '~> 1.4.3'
 gem 'tlsmail'
+gem 'cancan'
+
 
 
 # Use unicorn as the web server
