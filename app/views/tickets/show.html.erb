@@ -1,5 +1,7 @@
 <div id='ticket'>
+
 <h2><%= @ticket.title %></h2>
+<%= notice %>
 <%= authorized?("edit tickets", @project) do %>
    <%= link_to "Edit Ticket", [:edit, @project, @ticket] %>
 <% end %>

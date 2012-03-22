@@ -17,7 +17,7 @@ class TicketsController < ApplicationController
        flash[:notice] = "Ticket has been updated."
        redirect_to [@project, @ticket]
     else
-       flash[:alert] = "Ticket has not been updated."
+       flash[:notice] = "Ticket has not been updated."
        render :action => "edit"
     end
   end
@@ -39,7 +39,7 @@ class TicketsController < ApplicationController
         flash[:notice] = "Ticket has been created."
         redirect_to [@project, @ticket]
      else
-        flash[:alert] = "Ticket has not been created."
+        flash[:notice] = "Ticket has not been created."
         render :action => "new"
      end
    end
