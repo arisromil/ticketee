@@ -41,6 +41,7 @@ gem 'devise', '~> 1.4.3'
 gem 'tlsmail'
 gem 'cancan'
 
+gem 'paperclip'
 
 
 # Use unicorn as the web server
