@@ -14,10 +14,27 @@ class TicketsController < ApplicationController
    3.times { @ticket.assets.build }
   end
 
+  def create     
+     @ticket = @project.tickets.build(params[:ticket].merge!(:user => current_user))
+     if @ticket.save
+        flash[:notice] = "Ticket has been created."
+        redirect_to [@project, @ticket]
+     else
+        flash[:notice] = "Ticket has not been created."
+        render :action => "new"
+     end
+   end
 
+  def show
+
+  end
+
+  def edit
+
+  end
 
   def update
-    if @ticket.update_attributes(params[:ticket])
+    if @ticket.update_attributes(params[:ticket][:assets])
        flash[:notice] = "Ticket has been updated."
        redirect_to [@project, @ticket]
     else
@@ -33,20 +50,6 @@ class TicketsController < ApplicationController
   end
 
 
-  def new
-     @ticket = @project.tickets.build
-  end
-
-  def create     
-     @ticket = @project.tickets.build(params[:ticket].merge!(:user => current_user))
-     if @ticket.save
-        flash[:notice] = "Ticket has been created."
-        redirect_to [@project, @ticket]
-     else
-        flash[:notice] = "Ticket has not been created."
-        render :action => "new"
-     end
-   end
 
   private
     def find_project
@@ -60,13 +63,7 @@ class TicketsController < ApplicationController
       @ticket = @project.tickets.find(params[:id])
   end
 
-  def show
 
-  end
-
-  def edit
-
-  end
 
   def authorize_create!
      if !current_user.admin? && cannot?("create tickets".to_sym, @project)

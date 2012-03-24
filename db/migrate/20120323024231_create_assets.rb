@@ -9,11 +9,11 @@ class CreateAssets < ActiveRecord::Migration
         t.timestamps
      end
 
-  [:asset_file_name,
-   :asset_file_size,
-   :asset_content_type,
-   :asset_updated_at].each do |column|
-    remove_column :tickets, column
+     [:asset_file_name,
+      :asset_file_size,
+      :asset_content_type,
+      :asset_updated_at].each do |column|
+       remove_column :tickets, column
   end
  end
 end

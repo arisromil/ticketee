@@ -11,11 +11,16 @@ Ticketee::Application.routes.draw do
                  :as => :update_user_permissions
 
 
+  
+
+
   root :to => "projects#index"
   resources :projects do
     resources :tickets
   end
 
+
+  resources :files
 
   namespace :admin do
     root :to => "base#index"
